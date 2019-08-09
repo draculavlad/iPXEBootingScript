@@ -1,0 +1,13 @@
+#!ipxe
+
+dhcp
+
+set base-url http://192.168.1.1/ipxe
+kernel ${base-url}/linux
+initrd ${base-url}/initrd.gz
+imgargs linux auto=true fb=false url=${base-url}/preseed.cfg DEVCONF_DEBUG=5 console=ttyS0,115200 netcfg/choose_interface=eno1 debconf/priority=critical
+boot ||
+# If everything failed, give the user some options
+echo Boot from ${base-url} failed
+prompt --key 0x197e --timeout 2000 Press F12 to investigate || exit
+shell
