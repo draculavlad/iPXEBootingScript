@@ -28,6 +28,9 @@ http://old-releases.ubuntu.com/releases/16.04.4/ubuntu-16.04.5-server-amd64.iso
 ```
 mkdir /mnt/ubuntu1604
 mount -o loop ubuntu-16.04.6-server-amd64.iso /mnt/ubuntu1604
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+sudo dpkg-reconfigure locales
 ```
 
 # reference
