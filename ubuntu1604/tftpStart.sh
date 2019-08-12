@@ -6,7 +6,10 @@ stop on runlevel [!2345]
 expect fork
 respawn
 
-env DEFAULTS="/etc/default/tftpd-hpa"
+#Defaults for tftpd-hpa
+RUN_DAEMON="yes"
+OPTIONS="-l -s /var/lib/tftpboot"
+
 env PIDFILE="/var/run/tftpd-hpa.pid"
 
 pre-start script
